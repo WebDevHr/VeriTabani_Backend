@@ -9,7 +9,8 @@ module.exports = {
     averageRating: { type: 'number', columnName: 'average_rating' },
     numberOfRatings: { type: 'number', columnName: 'number_of_ratings' },
     imageUrl: { type: 'string', columnName: 'image_url' },
-    altText: { type: 'string', columnName: 'alt_text' }
+    altText: { type: 'string', columnName: 'alt_text' },
+    isFavorite: { type: 'boolean', columnName: 'is_in_wishlist' }
   },
 
   primaryKey: 'id', // OR whatever your primary key is

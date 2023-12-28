@@ -9,6 +9,19 @@
  */
 
 module.exports.policies = {
+  '*': true,
+  'wishlist/toggle-favorite': 'isAuthenticated',
+  'cart/get-cart-items': 'isAuthenticated',
+  'cart/add-product-to-cart': 'isAuthenticated',
+  'cart/remove-product-from-cart': 'isAuthenticated',
+  'wishlist/get-wishlist': 'isAuthenticated'
+
+  // man neveshtam ino
+  // '*': 'isAuthenticated', // Apply to all routes - you can specify routes for more granularity
+  // 'AuthController': {
+  //   'register': true, // Allow public access to register
+  //   'login': true, // Allow public access to login
+  // }
 
   /***************************************************************************
   *                                                                          *
@@ -17,6 +30,5 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
 
 };

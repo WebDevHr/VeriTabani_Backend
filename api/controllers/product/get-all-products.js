@@ -15,6 +15,10 @@ module.exports = {
     perpage: {
       type: 'number',
       required: true
+    },
+    userid: {
+      type: 'number',
+      default: 0,
     }
 
   },
@@ -28,7 +32,7 @@ module.exports = {
   },
 
 
-  fn: async function ({page, perpage}) {
+  fn: async function ({page, perpage, userid}) {
 
     // Calculate `offset`
     const offset = (page - 1) * perpage;
@@ -39,10 +43,9 @@ module.exports = {
         message: 'Invalid page number'
       });
     }
+    const productsQuery = 'SELECT * FROM get_product($1) ORDER BY product_id DESC LIMIT $2 OFFSET $3';
 
-    const productsQuery = 'SELECT * FROM public.product_view ORDER BY product_id DESC LIMIT $1 OFFSET $2';
-
-    var products = await sails.models.products_view_model.getDatastore().sendNativeQuery(productsQuery, [perpage, offset]);
+    var products = await sails.models.products_view_model.getDatastore().sendNativeQuery(productsQuery, [userid ,perpage, offset]);
     return {products: products.rows};
   }
 

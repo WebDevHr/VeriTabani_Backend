@@ -69,7 +69,18 @@ module.exports = {
     cartItems: {
       collection: 'Cart_Items',
       via: 'productId'
-    }
+    },
+
+    createdAt: {
+      type: 'ref',
+      columnType: 'timestamp with time zone',
+      autoCreatedAt: true,
+    },
+    updatedAt: {
+      type: 'ref',
+      columnType: 'timestamp with time zone',
+      autoUpdatedAt: true,
+    },
 
   },
 };

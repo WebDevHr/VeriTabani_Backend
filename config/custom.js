@@ -19,4 +19,7 @@ module.exports.custom = {
   // stripeSecret: 'sk_test_Zzd814nldl91104qor5911gjald',
   // …
 
+  jwtSecret: process.env.JWT_SECRET || 'veri_tabani', // IMPORTANT: replace with your own secret and preferably fetch from env
+  jwtExpires: 60 * 60 * 24, // Token expiration
+
 };

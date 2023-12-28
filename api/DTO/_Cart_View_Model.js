@@ -20,17 +20,5 @@ module.exports = {
       via: 'cartId' // 'cart' is the attribute in CartItem model that creates the association
     },
 
-
-    createdAt: {
-      type: 'ref',
-      columnType: 'timestamp with time zone',
-      autoCreatedAt: true,
-    },
-    updatedAt: {
-      type: 'ref',
-      columnType: 'timestamp with time zone',
-      autoUpdatedAt: true,
-    },
-
   },
 };

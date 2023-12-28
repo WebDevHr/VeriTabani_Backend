@@ -34,10 +34,18 @@ module.exports.routes = {
   // 'GET  /api/v1/product/:productId':                 { action: 'product/get-product' },
   // 'GET /categories/:id/products': 'product/categories.findProductsByCategory',
   // 'GET /categories': 'product/categories.allCategories',
-  'GET /api/v1/account/log-in' : {action:'account/log-in'},
-  'GET /api/v1/products/:perpage/:page' : {action:'product/get-all-products'},
-  'GET /api/v1/product/:id' : {action:'product/get-product-by-id'},
-  'POST /api/v1/add-product' : {action:'product/add-product'}
+  'GET /api/v1/account/log-in' : { action:'account/log-in'},
+  'POST /api/v1/products/:perpage/:page' : { action:'product/get-all-products'},
+  'GET /api/v1/product/:id' : { action:'product/get-product-by-id'},
+  'POST /api/v1/add-product' : { action:'product/add-product'},
+  'POST /api/v1/wishlist/toggle-favorite': { action:'wishlist/toggle-favorite' },
+  'GET /api/v1/cart/get-cart-items': { action:'cart/get-cart-items' },
+  'POST /api/v1/cart/add-product-to-cart': { action:'cart/add-product-to-cart' },
+  'POST /api/v1/cart/remove-product-from-cart': { action:'cart/remove-product-from-cart' },
+  'GET /api/v1/wishlist': { action: 'wishlist/get-wishlist' },
+
+  'POST /api/v1/register': { action: 'auth/register' },
+  'POST /api/v1/login': { action: 'auth/login' },
 
   /***************************************************************************
   *                                                                          *

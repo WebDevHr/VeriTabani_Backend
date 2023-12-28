@@ -25,5 +25,16 @@ module.exports = {
       columnName: 'quantity',
       required: true
     },
+
+    createdAt: {
+      type: 'ref',
+      columnType: 'timestamp with time zone',
+      autoCreatedAt: true,
+    },
+    updatedAt: {
+      type: 'ref',
+      columnType: 'timestamp with time zone',
+      autoUpdatedAt: true,
+    },
   },
 };

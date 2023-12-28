@@ -52,6 +52,7 @@ module.exports = {
     isAdmin: {
       type: 'boolean',
       defaultsTo: false,
+      allowNull: true,
       columnName: 'is_admin'
     },
     orders: {
@@ -81,6 +82,12 @@ module.exports = {
 
   },
 
+  beforeCreate: async function (user, proceed) {
+    // Hash the password before saving
+    const hashedPassword = await sails.helpers.passwords.hashPassword(user.password);
+    user.password = hashedPassword;
+    return proceed();
+  },
 
   // Custom configuration for data serialization
   customToJSON: function() {

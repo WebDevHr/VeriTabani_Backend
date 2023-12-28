@@ -17,12 +17,15 @@ module.exports = {
       required: true,
       columnName: 'product_id',
     },
-    addedDate: {
+    createdAt: {
       type: 'ref',
       columnType: 'timestamp with time zone',
-      columnName: 'added_date',
-      autoCreatedAt: true, // Automatically set to the current timestamp when a new record is created
-    }
+      autoCreatedAt: true,
+    },
+    updatedAt: {
+      type: 'ref',
+      columnType: 'timestamp with time zone',
+      autoUpdatedAt: true,
+    },
   },
-
 };
