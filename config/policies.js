@@ -14,7 +14,10 @@ module.exports.policies = {
   'cart/get-cart-items': 'isAuthenticated',
   'cart/add-product-to-cart': 'isAuthenticated',
   'cart/remove-product-from-cart': 'isAuthenticated',
-  'wishlist/get-wishlist': 'isAuthenticated'
+  'wishlist/get-wishlist': 'isAuthenticated',
+  'product/get-product-by-id': 'isAuthenticated',
+  'orders/*': 'isAuthenticated',
+  'auth/change-password' : 'isAuthenticated'
 
   // man neveshtam ino
   // '*': 'isAuthenticated', // Apply to all routes - you can specify routes for more granularity

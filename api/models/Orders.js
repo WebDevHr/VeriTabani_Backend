@@ -7,6 +7,16 @@ module.exports = {
       unique: true,
       columnName: 'order_id',
     },
+    createdAt: {
+      type: 'ref',
+      columnType: 'timestamp with time zone',
+      autoCreatedAt: true,
+    },
+    updatedAt: {
+      type: 'ref',
+      columnType: 'timestamp with time zone',
+      autoUpdatedAt: true,
+    },
     userId: {
       model: 'users', // This should be in lowercase, which is the typical convention for model identities in Sails.js
       required: true,
@@ -20,7 +30,7 @@ module.exports = {
     },
     status: {
       type: 'string',
-      isIn: ['pending', 'completed', 'shipped', 'cancelled'],
+      isIn: ['Hazırlık aşamasında', 'Tamamlandı', 'Gönderildi', 'iptal edildi'],
       required: true
     },
     total: {

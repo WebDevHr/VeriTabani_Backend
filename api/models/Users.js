@@ -12,6 +12,16 @@ module.exports = {
       columnName: 'user_id',
       unique: true
     },
+    createdAt: {
+      type: 'ref',
+      columnType: 'timestamp with time zone',
+      autoCreatedAt: true,
+    },
+    updatedAt: {
+      type: 'ref',
+      columnType: 'timestamp with time zone',
+      autoUpdatedAt: true,
+    },
     firstName: {
       type: 'string',
       required: true,

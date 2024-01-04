@@ -7,6 +7,16 @@ module.exports = {
       autoIncrement: true,
       unique: true,
     },
+    createdAt: {
+      type: 'ref',
+      columnType: 'timestamp with time zone',
+      autoCreatedAt: true,
+    },
+    updatedAt: {
+      type: 'ref',
+      columnType: 'timestamp with time zone',
+      autoUpdatedAt: true,
+    },
     orderId: {
       model: 'orders', // This should match the global identity of your Order model
       unique: true,
@@ -39,8 +49,7 @@ module.exports = {
     country: {
       type: 'string',
       columnName: 'country',
-      maxLength: 255,
-      required: true
+      maxLength: 255
     },
     cost: {
       type: 'number',

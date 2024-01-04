@@ -7,6 +7,16 @@ module.exports = {
       autoIncrement: true,
       unique: true,
     },
+    createdAt: {
+      type: 'ref',
+      columnType: 'timestamp with time zone',
+      autoCreatedAt: true,
+    },
+    updatedAt: {
+      type: 'ref',
+      columnType: 'timestamp with time zone',
+      autoUpdatedAt: true,
+    },
     userId: {
       model: 'users', // This should match the identity of your User model
       required: true, // Assuming a user must be associated with the address

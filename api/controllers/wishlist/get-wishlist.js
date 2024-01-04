@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 module.exports = {
 
   friendlyName: 'Find Favorites',
@@ -38,8 +39,17 @@ module.exports = {
       var userFavorites = await Wishlist.find({ userId: userId })
         .populate('productId'); // Assuming the Favorite model has a 'product' association
 
-      if (userFavorites.length === 0) {
-        throw 'notFound';
+      if (userFavorites.length !== 0) {
+        for (let favorite of userFavorites) {
+          const images = await Product_Images.find({ productId: favorite.productId.id });
+          const reviews = await Reviews.find({ productId: favorite.productId.id });
+          if (images) {
+            favorite.productId.images = images;
+          }
+          if (reviews) {
+            favorite.productId.reviews = reviews;
+          }
+        }
       }
 
       // If successful, return the list of favorites via the 'success' exit

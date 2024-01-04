@@ -26,7 +26,7 @@ module.exports = {
       description: 'No user with the specified email found in the database.',
     },
     badCombo: {
-      responseType: 'unauthorized',
+      statusCode: 401,
       description: 'The provided email and password combination does not match any user in the database.',
     },
     serverError: {
@@ -47,8 +47,14 @@ module.exports = {
 
       // Use a helper to hash the provided password and compare it with the
       // user record's hashed password.
-      await sails.helpers.checkPassword(password, userRecord.passwordHash)
+      const passwordCheck = await sails.helpers.checkPassword(password, userRecord.passwordHash)
         .intercept('incorrect', 'badCombo');
+
+      if(!passwordCheck) {
+        return exits.badCombo({
+          error: 'E-posta yada Şifre yanlış',
+        });
+      }
 
       // Issue a JWT token using the `sign` method from `jsonwebtoken`
       const token = jwt.sign(

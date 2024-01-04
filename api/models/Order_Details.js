@@ -7,6 +7,16 @@ module.exports = {
       autoIncrement: true,
       unique: true,
     },
+    createdAt: {
+      type: 'ref',
+      columnType: 'timestamp with time zone',
+      autoCreatedAt: true,
+    },
+    updatedAt: {
+      type: 'ref',
+      columnType: 'timestamp with time zone',
+      autoUpdatedAt: true,
+    },
     // Foreign key to Orders table
     orderId: {
       model: 'orders', // Make sure 'order' matches the model name for your Orders table

@@ -8,8 +8,7 @@ module.exports = {
     price: { type: 'number', columnName: 'price' },
     averageRating: { type: 'number', columnName: 'average_rating' },
     numberOfRatings: { type: 'number', columnName: 'number_of_ratings' },
-    imageUrl: { type: 'string', columnName: 'image_url' },
-    altText: { type: 'string', columnName: 'alt_text' },
+    images: { type: 'json', columnType: 'array'},
     isFavorite: { type: 'boolean', columnName: 'is_in_wishlist' }
   },
 
